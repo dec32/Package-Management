@@ -14,30 +14,30 @@ public class CustomerController {
 	@Autowired
 	private CustomerService customerService;
 	//查询
-	@RequestMapping("/customers")
+	@RequestMapping("/api/customers")
 	public List<Customer> findAll() {
 		return customerService.findAll();
 	}
-	@RequestMapping("/customers/{id}")
+	@RequestMapping("/api/customers/{id}")
 	public Customer findOne(@PathVariable("id") String id) {
 		return customerService.findOne(id);
 	}
 	
 	//增加
-	@RequestMapping(method = RequestMethod.POST, value = "/customers")
+	@RequestMapping(method = RequestMethod.POST, value = "/api/customers")
 	public void add(@RequestBody Customer customer) {
 		customerService.add(customer);
 	}
 	
 	
 	//删除
-	@RequestMapping(method = RequestMethod.DELETE, value = "customers/{id}")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/api/customers/{id}")
 	public void delete(@PathVariable("id") String id) {
 		customerService.delete(id);
 	}
 	
 	//修改
-	@RequestMapping(method = RequestMethod.POST, value = "customers/{id}")
+	@RequestMapping(method = RequestMethod.POST, value = "/api/customers/{id}")
 	public void update(@PathVariable String id, @RequestBody Customer customer) {
 		customerService.update(id, customer);
 	}
