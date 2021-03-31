@@ -11,10 +11,10 @@ import javax.persistence.Table;
 @Table(name = "orders")
 public class Order implements Serializable{
 	@Id
-	@Column(name = "cus_id")
+	@Column(name = "customer_id")
 	private String customerId;
 	@Id
-	@Column(name = "pkg_id")
+	@Column(name = "package_id")
 	private String packageId;
 	
 	public String getCustomerId() {

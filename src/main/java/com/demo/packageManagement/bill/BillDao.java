@@ -1,5 +1,10 @@
 package com.demo.packageManagement.bill;
 
-public interface BillDao {
+import javax.transaction.Transactional;
 
+import org.springframework.data.repository.CrudRepository;
+
+@Transactional
+public interface BillDao extends CrudRepository<Bill, String>{
+	public Iterable<Bill> findByCustomerId(String customerId);
 }

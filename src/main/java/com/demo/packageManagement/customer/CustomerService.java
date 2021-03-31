@@ -12,10 +12,8 @@ import org.springframework.stereotype.Service;
 public class CustomerService {
 	@Autowired
 	private CustomerDao customerDao;
-	public List<Customer> findAll(){
-		List customerList = new ArrayList<Customer>();
-		customerDao.findAll().forEach(customerList::add);
-		return customerList;
+	public Iterable<Customer> findAll(){
+		return customerDao.findAll();
 	}
 	
 	public Customer findOne(String id) {
@@ -30,9 +28,9 @@ public class CustomerService {
 		customerDao.save(customer);
 	}
 	
-	public void update(String id, Customer customer) {
+	public void update(String customerId, Customer customer) {
 		//当传入的新对象的 id 与原有对象的 id 不一致时，应当拒绝修改
-		if(!id.equals(customer.getId())) {
+		if(!customerId.equals(customer.getCustomerId())) {
 			return;
 		}
 		customerDao.save(customer);

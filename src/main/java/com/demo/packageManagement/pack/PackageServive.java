@@ -1,34 +1,26 @@
 package com.demo.packageManagement.pack;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.demo.packageManagement.customer.Customer;
 
 @Service
 public class PackageServive {
 	@Autowired
 	private PackageDao packageDao;
 	
-	public List<Package> findAll(String customerId){
+	public Iterable<Package> findAll(String customerId){
 		//若顾客 id 非空，则需要筛选，若顾客 id 为空，直接返回全部数据即可
 		if(customerId != null) {
 			return packageDao.findByCustomerId(customerId);
 		}
-		List packageList = new ArrayList<Customer>();
-		packageDao.findAll().forEach(packageList::add);
-		return packageList;
+
+		return packageDao.findAll();
 	}
 	
 	public Package findOne(String id) {
 		return packageDao.findOne(id);
-	}
-	
-	public List<Package> findByCustomerId(String customerId){
-		return packageDao.findByCustomerId(customerId);
 	}
 	
 	public void delete(String id) {
@@ -41,7 +33,7 @@ public class PackageServive {
 	
 	public void update(String id, Package pack) {
 		//当传入的新对象的 id 与原有对象的 id 不一致时，应当拒绝修改
-		if(!id.equals(pack.getId())) {
+		if(!id.equals(pack.getPackageId())) {
 			return;
 		}
 		packageDao.save(pack);

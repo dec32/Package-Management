@@ -15,7 +15,7 @@ public class CustomerController {
 	private CustomerService customerService;
 	//查询
 	@RequestMapping("/api/customers")
-	public List<Customer> findAll() {
+	public Iterable<Customer> findAll() {
 		return customerService.findAll();
 	}
 	@RequestMapping("/api/customers/{id}")

@@ -15,7 +15,7 @@ public class PackageController {
 
 	
 	@RequestMapping("/api/packages")
-	public List<Package> findAll(@RequestParam(value = "customer", required=false) String customerId) {
+	public Iterable<Package> findAll(@RequestParam(value = "customer", required=false) String customerId) {
 		return packageServive.findAll(customerId);
 	}
 	
