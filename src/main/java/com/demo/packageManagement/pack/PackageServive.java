@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import com.demo.packageManagement.customer.Customer;
@@ -21,6 +22,10 @@ public class PackageServive {
 	
 	public Package findOne(String id) {
 		return packageDao.findOne(id);
+	}
+	
+	public List<Package> findByCustomerId(String customerId){
+		return packageDao.findByCustomerId(customerId);
 	}
 	
 	public void delete(String id) {

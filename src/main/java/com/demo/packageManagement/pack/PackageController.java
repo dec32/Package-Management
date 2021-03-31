@@ -14,4 +14,9 @@ public class PackageController {
 	public List<Package> getAll() {
 		return packageServive.findAll();
 	}
+	
+	@RequestMapping("/api/packages?customer={customerId}")
+	public List<Package> findByCustomerId(String customerId) {
+		return packageServive.findByCustomerId(customerId);
+	}
 }
