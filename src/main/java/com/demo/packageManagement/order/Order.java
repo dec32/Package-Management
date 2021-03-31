@@ -1,6 +1,7 @@
 package com.demo.packageManagement.order;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,11 +12,15 @@ import javax.persistence.Table;
 @Table(name = "orders")
 public class Order implements Serializable{
 	@Id
-	@Column(name = "customer_id")
-	private String customerId;
-	@Id
-	@Column(name = "package_id")
-	private String packageId;
+	@Column(name = "package_id")  private String packageId;
+	@Column(name = "customer_id") private String customerId;
+	@Column(name = "money")       private double charge;
+	@Column(name = "pay_state")   private boolean status;
+	private Date time;
+	
+	
+	
+	
 	
 	public String getCustomerId() {
 		return customerId;
@@ -29,9 +34,24 @@ public class Order implements Serializable{
 	public void setPackageId(String packageId) {
 		this.packageId = packageId;
 	}
-	
-	
-
+	public double getCharge() {
+		return charge;
+	}
+	public void setCharge(double charge) {
+		this.charge = charge;
+	}
+	public boolean isStatus() {
+		return status;
+	}
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
+	public Date getTime() {
+		return time;
+	}
+	public void setTime(Date time) {
+		this.time = time;
+	}
 	
 	
 	
