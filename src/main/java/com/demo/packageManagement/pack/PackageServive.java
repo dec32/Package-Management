@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import com.demo.packageManagement.customer.Customer;
@@ -14,7 +13,11 @@ public class PackageServive {
 	@Autowired
 	private PackageDao packageDao;
 	
-	public List<Package> findAll(){
+	public List<Package> findAll(String customerId){
+		//若顾客 id 非空，则需要筛选，若顾客 id 为空，直接返回全部数据即可
+		if(customerId != null) {
+			return packageDao.findByCustomerId(customerId);
+		}
 		List packageList = new ArrayList<Customer>();
 		packageDao.findAll().forEach(packageList::add);
 		return packageList;
