@@ -31,7 +31,7 @@ public class OrderController {
 		orderService.update(packageId, order);
 	}
 	
-	@RequestMapping(method = RequestMethod.DELETE, value = "/api/customers/{packageId}")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/api/orders/{packageId}")
 	public void delete(@PathVariable("packageId") String packageId) {
 		orderService.delete(packageId);
 	}
