@@ -14,6 +14,10 @@ public class OrderService {
 		}
 		return orderDao.findAll();
 	}
+	
+//	public Iterable<Order> findAll() {
+//		return orderDao.findAll();
+//	}
 	public Order findOne(String packageId) {
 		return orderDao.findOne(packageId);
 	}

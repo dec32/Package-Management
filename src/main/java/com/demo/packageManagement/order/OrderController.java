@@ -16,6 +16,12 @@ public class OrderController {
 	public Iterable<Order> findAll(@RequestParam(name = "customer",required = false)String customerId){
 		return orderService.findAll(customerId);
 	}
+//	@RequestMapping("/api/orders")
+//	public Iterable<Order> findAll(){
+//		return orderService.findAll();
+//	}
+
+	
 	@RequestMapping("/api/orders/{packageId}")
 	public Order findOne(@PathVariable("packageId") String packageId) {
 		return orderService.findOne(packageId);

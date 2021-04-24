@@ -15,7 +15,7 @@ public class Order implements Serializable{
 	@Column(name = "package_id")  private String packageId;
 	@Column(name = "customer_id") private String customerId;
 	@Column(name = "money")       private double charge;
-	@Column(name = "pay_state")   private boolean status;
+	@Column(name = "pay_state")   private String status;
 	private Date time;
 	
 	
@@ -40,10 +40,10 @@ public class Order implements Serializable{
 	public void setCharge(double charge) {
 		this.charge = charge;
 	}
-	public boolean isStatus() {
+	public String getStatus() {
 		return status;
 	}
-	public void setStatus(boolean status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 	public Date getTime() {

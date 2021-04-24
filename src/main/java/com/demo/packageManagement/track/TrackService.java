@@ -32,5 +32,19 @@ public class TrackService {
 		List trackList = new ArrayList<Track>();
 		trackDao.findAll().forEach(trackList::add);
 		return trackList;
+		
+		
+	}
+	
+	public void delete(TrackId trackId) {
+		trackDao.delete(trackId);
+	}
+	
+	public void add(Track track) {
+		trackDao.save(track);
+	}
+	
+	public void update(Track track) {
+		trackDao.save(track);
 	}
 }
